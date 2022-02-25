@@ -1,0 +1,11 @@
+if item
+  tr(id=`SKU${item.sku}`)
+    td(class="table-center")
+      img.item-picture(src=item.image_url != '' ? item.image_url : '/images/image-placeholder.png') 
+    td(class="table-center")= item.sku 
+    td= item.brand
+    td= item.name
+    td #{ (+item.sale_price).toFixed(2) } $   
+    td(class="table-center")
+      i(class="fas fa-edit" onclick=`openEditItem(${item.sku})`)
+      i(class="far fa-trash-alt" onclick=`opendeleteItem(${item.sku})`)

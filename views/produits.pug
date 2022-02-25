@@ -1,0 +1,72 @@
+extends layouts/main.pug
+
+block content
+  table(class="table")
+    thead(class="table-dark")
+      tr
+        th(scope="col") Image
+        th(scope="col") SKU
+        th(scope="col") Marque
+        th(scope="col") Produit
+        th(scope="col") Prix
+        th(scope="col")       
+          button(onclick=`openAddItem()`)
+            i.fas.fa-plus    
+    tbody
+      each item in firstPageItems
+          include includes/item
+  #pagination
+      button.btn(onclick='firstPage()') |&lt;
+      button.btn(onclick=`previous(${page})`) |&lt;
+      button.btn(onclick=`curent(${page})`) page 
+      button.btn(onclick=`nextPage(${page})`) &gt;
+      button.btn(onclick='lastPage()') &gt;|
+
+  form(action="/produits/add" method="POST" encType= "multipart/form-data")  
+    #myModal1.modal
+      #modal1.mod
+        h3 Ajout d&apos;un produit
+        #grid
+          #prem 
+            img#display(src='' placeholder="" )
+            input#Img.entree(type="file",name="image_url" accept=".jpeg ,.png ,.jpj" style="visibility: hidden" src="")
+          #deux  
+            label.lab SKU
+            input#Sku.inp(type="text" ,name="sku" )
+          #trois
+            label.lab Prix
+            input#Price.inp(type="number" ,name="sale_price")
+        label.lab Marque
+        input#Brand.inp(type="text" ,name="brand")
+        label.lab Nom
+        input#Name.inp(type="text" ,name="name")
+        label.lab Description
+        input#Descript.desc(type="text" ,name="description")
+        #butt1
+          input#conf1.btn.btn-primary(type="submit" value="Confirmer" disabled=!firstPageItems.length)
+          input#annul.btn.btn-primary(type="reset" onclick = `closeModal('myModal1')` value="Annuler" disabled=!firstPageItems.length)
+  form(action="/produits/update/:sku" method="POST")  
+    #myModal2.modal
+      #modal2.mod
+        h3 Modification d'un produit
+        input#img.entree(type="text", name="image_url" src="")
+        label.lab SKU
+        input#sku.inp(type="text" ,name="sku")
+        label.lab Marque
+        input#brand.inp(type="text" ,name="brand")
+        label.lab Prix
+        input#price.inp(type="number" ,name="sale_price")
+        label.lab Nom
+        input#name.inp(type="text"  ,name="name")
+        label.lab Description
+        input#descript.desc(type="text" ,name="description")
+        #butt2
+          input#conf2.btn.btn-primary(type="submit" value="Confirmer" )
+          input#ann.btn.btn-primary(type="reset" value="Annuler" onclick = `closeModal('myModal2')` )
+  form(action="/produits/delete/:sku" method="get") 
+    #myModal3.modal
+      .modal3
+        p Voulez vous réellement supprimer ce produit
+        div(id="oui_non")
+          input#conf3.btn.btn-primary(type="submit" value="Oui" )
+          input#non.btn.btn-primary(type="reset" onclick = `closeModal('myModal3')` value="Non" )

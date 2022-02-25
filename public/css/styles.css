@@ -1,0 +1,498 @@
+:root {
+  --accent-color: #5f27cd;
+  --accent-color-hover: #5f27cd;
+  --primary-color: #341f97dd;
+  --disabled-color: #2e86de;
+  --dark-color: #222f3e;
+  --light-color: #ddd;
+  --danger-color: #ff6b6b;
+  --content-color: #c8d6e5dd;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body::before {
+  content: "";
+  height: 100vh;
+  filter: grayscale();
+}
+
+body {
+  font-family: "Ubuntu", sans-serif;
+  background: center center / cover url(../images/background.png) no-repeat;
+}
+
+h1 {
+  font-family: "Limelight", cursive;
+  margin: 2rem;
+  color: var(--light-color);
+  text-shadow: 2px 2px 4px var(--dark-color);
+}
+
+.container {
+  height: 100vh;
+  display: flex;
+  flex-flow: column;
+}
+
+.content {
+  flex: 1;
+  max-width: 80%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+header {
+  background-color: var(--primary-color);
+  border-bottom: 1px solid var(--light-color);
+}
+
+header ul li a {
+  color: var(--light-color);
+  text-decoration: none;
+}
+
+header ul {
+  display: flex;
+  flex-direction: row nowrap;
+  justify-content: flex-end;
+  list-style-type: none;
+}
+
+header ul li {
+  padding: 1rem;
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  background-color: var(--primary-color);
+  border-top: 1px solid var(--light-color);
+}
+
+footer p {
+  color: var(--light-color);
+  padding: 1rem;
+}
+
+.center {
+  text-align: center;
+}
+
+.form-control {
+  border: 1px solid var(--dark-color);
+  border-radius: 6px;
+  padding: 0.7rem;
+  margin: 0.3rem;
+}
+
+.btn {
+  border: 1px solid #eee;
+  border-radius: 6px;
+  padding: 0.7rem;
+  cursor: pointer;
+  background-color: var(--primary-color);
+  color: #eee;
+}
+
+.btn:hover {
+  background-color: var(--accent-color);
+}
+
+.fas,
+.far {
+  padding: 0.5rem;
+}
+
+.fa-trash-alt:hover {
+  color: var(--danger-color);
+  cursor: pointer;
+}
+.fa-edit:hover {
+  color: var(--accent-color);
+  cursor: pointer;
+}
+
+.btn-primary {
+  background-color: var(--accent-color);
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-color);
+}
+
+#sale {
+  display: grid;
+  grid:
+    "form form form form" 4rem
+    "table table table table" 1fr
+    ". . . bottom" minmax(min-content, max-content)
+    / 1fr 1fr minmax(min-content, max-content);
+}
+
+form {
+  display: flex;
+  flex-flow: row nowrap;
+  background-color: var(--primary-color);
+  margin-bottom: 0.5rem;
+  grid-area: form;
+}
+
+.table {
+  width: 100%;
+  table-layout: fixed;
+  border-spacing: 0rem 1rem;
+  border-collapse: collapse;
+  grid-area: table;
+}
+
+.amount {
+  margin-top: 0.5rem;
+  background-color: var(--primary-color);
+  color: var(--light-color);
+  text-align: right;
+  padding: 1rem;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-end;
+}
+
+.title,
+.values {
+  padding: 0.5rem;
+}
+
+.table tr > *:nth-child(1) {
+  width: 3rem;
+}
+.table tr > *:nth-child(2) {
+  width: 1rem;
+}
+.table tr > *:nth-child(3) {
+  width: 10rem;
+}
+.table tr > *:nth-child(4) {
+  width: 1.5rem;
+}
+.table tr > *:nth-child(5) {
+  width: 1.5rem;
+}
+.table tr > *:nth-child(6) {
+  width: 1.5rem;
+}
+.table tr > *:nth-child(7) {
+  width: 1.5rem;
+}
+
+.table thead tr th {
+  padding: 1.2rem;
+}
+
+.table-dark {
+  height: 2.5rem;
+  background-color: var(--primary-color);
+  font-weight: bold;
+  color: #fff;
+}
+
+.table tbody tr td {
+  border-bottom: 1px solid var(--dark-color);
+  background-color: var(--content-color);
+  padding: 0.4rem;
+}
+
+.table-right {
+  text-align: right;
+}
+
+.table-center {
+  text-align: center;
+}
+
+.item-picture {
+  height: 3rem;
+  width: 3rem;
+  border-radius: 0.75rem;
+  border: 2px solid var(--light-color);
+  box-shadow: 1px 1px 4px var(--dark-color);
+  margin: 0.25rem;
+}
+
+.bottom {
+  display: flex;
+  grid-area: bottom;
+  flex-direction: column;
+}
+
+.amount p {
+  padding: 0.3rem;
+}
+
+.amount p {
+  padding: 0.3rem;
+}
+
+.amount .title p:nth-child(3) {
+  margin-bottom: 0.4rem;
+}
+
+.amount .values p:nth-child(3) {
+  margin-top: 0.2rem;
+  border-bottom: 1px solid var(--light-color);
+  margin-bottom: 0.2rem;
+}
+
+.amount .title p:nth-child(4) {
+  font-weight: bold;
+}
+
+.amount .values p:nth-child(4) {
+  font-weight: bold;
+}
+
+.bottom form input {
+  width: 100%;
+}
+
+#error {
+  padding: 1rem;
+  border: 3px solid var(--dark-color);
+  background-color: var(--accent-color);
+  color: var(--light-color);
+  border-radius: 5px;
+}
+
+/* The Modal (background) */
+
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 50%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */
+.close {
+  color: rgb(47, 12, 173);
+  float: right;
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: rgb(197, 5, 5);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#oui_non {
+  display: flex;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+#myModal1 {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 30%; /* Full width */
+  height: 70%; /* Full height */
+  /* overflow: auto; Enable scroll if needed */
+  background-color: var(--accent-color);
+}
+#modal1 {
+  /* margin-left: 30%;
+  margin-right: 30%;  */
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  margin: 15% auto; /* 15% from the top and centered 
+  padding: 20px; */
+  border: 1px solid #888;
+  /* width: 50%; Could be more or less, depending on screen size */
+}
+#myModal2 {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 30%; /* Full width */
+  height: 70%; /* Full height */
+  /* overflow: auto; Enable scroll if needed */
+  background-color: var(--accent-color);
+}
+#modal2 {
+  /* margin-left: 30%;
+  margin-right: 30%;  */
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  margin: 15% auto; /* 15% from the top and centered 
+  padding: 20px; */
+  border: 1px solid #888;
+  /* width: 50%; Could be more or less, depending on screen size */
+}
+
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal3 {
+  background-color: #fefefe;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 50%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */
+.close {
+  color: rgb(47, 12, 173);
+  float: right;
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: rgb(197, 5, 5);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#oui_non {
+  display: flex;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.lab {
+  text-align: left;
+}
+
+button {
+  border: 1px solid #eee;
+  border-radius: 6px;
+  padding: 0.7rem;
+  cursor: pointer;
+  background-color: var(--primary-color);
+  color: #eee;
+}
+
+#butt1 {
+  margin-top: 10%;
+  margin-bottom: 10%;
+}
+#butt2 {
+  margin-top: 10%;
+  margin-bottom: 10%;
+}
+
+#signin {
+  margin-left: 40%;
+  margin-right: 40%;
+  background-color: var(--accent-color);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between; 
+  align-items: center;
+  border-radius: 6px;
+}
+
+.inpu {
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+#deja {
+  color: var(--light-color);
+}
+a {
+  color: var(--light-color);
+}
+
+.inpu {
+  height: 100px;
+}
+
+.ins {
+  color: var(--light-color);
+}
+
+#display {
+  height: 6rem;
+  width: 6rem;
+  background: center center / cover url(../images/image-placeholder.png)
+    no-repeat;
+}
+
+#pagination {
+  color: var(--primary-color);
+  font-family: "Limelight", cursive;
+}
+#grid {
+  display: grid;
+  grid-template-columns: 20% 20% 20% 20%;
+  grid-template-rows: 20% 20% 20% 20%;
+}
+
+#prem {
+  grid-column: 1 / span 2;
+  grid-row: 1 / span 4;
+}
+
+#deux {
+  grid-column: 3 / span 2;
+  grid-row: 1 / span 2;
+}
+
+#trois {
+  grid-column: 3 / span 2;
+  grid-row: 3 / span 2;
+}

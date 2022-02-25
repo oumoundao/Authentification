@@ -1,0 +1,17 @@
+extends layouts/main.pug        
+
+block content
+    #signup
+    h3.ins Inscription
+    #formIn
+    form(action='post' ,='')
+        #inpu
+        input(type='text' ,class='inpu' ,name='name' placeholder='Nom Complet')
+        input(type='text' ,class='inpu' ,name='email' placeholder='Courriel')
+        input(type='password' ,class='inpu' ,='' name='password' placeholder='Mot de passe')
+        if error
+            p(style='color:red;') error
+        button.but Inscription
+    p#deja
+        | Deja inscrit ? 
+        a(href='') Connectez_vous
